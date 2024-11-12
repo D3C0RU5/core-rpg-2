@@ -6,7 +6,7 @@ export class UUID {
 
   constructor(value: string) {
     this.value = value
-    if(!UUID.validate(value)) {
+    if (!UUID.validate(value)) {
       throw invalidUUIDError(value)
     }
   }
@@ -16,7 +16,7 @@ export class UUID {
     return new UUID(uuid)
   }
 
-  private static validate(uuid:string):boolean{
+  private static validate(uuid: string): boolean {
     const regexUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89a-f][0-9a-f]{3}-[0-9a-f]{12}$/i;
     return regexUUID.test(uuid);
   }

@@ -1,7 +1,7 @@
-import { UUID } from "crypto"
+
 
 export interface UserPayload {
-  userId: UUID
+  userId: string
   name: string
   email: string
 }

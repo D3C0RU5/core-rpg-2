@@ -1,5 +1,5 @@
-import { UserPayload } from "./type/userPayload";
+import { User } from "../../../@domain/models/user";
 
 export interface IJwtTokenGenerator {
-  generateToken(payload: UserPayload): string
+  generateToken(user: User): string
 }

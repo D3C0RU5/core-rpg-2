@@ -1,7 +1,6 @@
 export type LoginResult = {
   userId: string
-  firstName: string,
-  lastName: string,
+  name: string,
   email: string,
   token: string
 }

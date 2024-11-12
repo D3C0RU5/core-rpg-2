@@ -5,7 +5,7 @@ export class BaseError extends Error {
   public readonly details: any
   public readonly stack?: string
 
-  constructor(name: string, message: string, details: any) {
+  constructor(name: string, message: string, details: any = null) {
     super(message)
     this.name = name
     this.message = message

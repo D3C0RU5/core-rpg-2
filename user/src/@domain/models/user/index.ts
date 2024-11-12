@@ -26,7 +26,6 @@ export class User {
 
   static create(name: string, email: string, hashedPassword: string): User {
     const userId = crypto.randomUUID()
-
     return new User({ userId, name, email, hashedPassword })
   }
 
@@ -34,23 +33,24 @@ export class User {
     this._token = value
   }
 
-  get userId(){
+  get Id() {
     return this._userId.Value
   }
 
-  get name(){
+  get Name() {
     return this._name
   }
 
-  get email(){
+
+  get Email() {
     return this._email.Value
   }
 
-  get hashedPassword(){
+  get HashedPassword() {
     return this._hashedPassword
   }
 
-  get token(){
+  get Token() {
     return this._token
   }
 

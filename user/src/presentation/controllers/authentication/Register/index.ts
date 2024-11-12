@@ -7,8 +7,8 @@ export class RegisterController implements Controller {
   constructor(private readonly registerService: IRegisterService) { }
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
-      const { firstName, lastName, email, password } = httpRequest.body
-      const loginResult = await this.registerService.register(firstName, lastName, email, password)
+      const { name, email, password } = httpRequest.body
+      const loginResult = await this.registerService.register(name, email, password)
       return ok(loginResult)
     } catch (error) {
       return handleError(error)

@@ -1,21 +1,27 @@
+import { BaseError } from "../../../../utils/errors/base-error"
 import { IJwtTokenGenerator } from "../../../interfaces/authentication/IJwtTokenGenerator"
+import { IUserRepository } from "../../../interfaces/persistence/IUserRepository"
 import { ILoginService, LoginResult } from "./ILoginService"
 
 export class LoginService implements ILoginService {
-  constructor(private readonly jwtTokenGenerator: IJwtTokenGenerator) { }
+  constructor(private readonly jwtTokenGenerator: IJwtTokenGenerator, private readonly userRepository: IUserRepository) { }
 
   async login(email: string, password: string): Promise<LoginResult> {
 
+    const user = await this.userRepository.getByEmail(email)
+    if (!user) {
+      throw new BaseError('InvalidUser', 'User with given email not exists')
+    }
 
-    const uuid = crypto.randomUUID()
+    if (user.HashedPassword !== password) {
+      throw new BaseError('InvalidUser', 'Invalid password.')
+    }
 
-    // Create JWT token
-    const token = this.jwtTokenGenerator.generateToken({ userId: uuid, name: 'founded_first_name', email })
+    const token = this.jwtTokenGenerator.generateToken(user)
 
     return Promise.resolve({
-      userId: uuid,
-      firstName: "founded_first_name",
-      lastName: "founded_last_name",
+      userId: user.Id,
+      name: user.Name,
       email,
       token
     })

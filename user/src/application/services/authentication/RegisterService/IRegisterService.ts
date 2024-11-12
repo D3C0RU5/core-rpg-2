@@ -1,10 +1,9 @@
 export type RegisterResult = {
   userId: string
-  firstName: string,
-  lastName: string,
+  name: string,
   email: string,
 }
 
 export interface IRegisterService {
-  register(firstName: string, lastName: string, email: string, password: string): Promise<RegisterResult>
+  register(name: string, email: string, password: string): Promise<RegisterResult>
 }

@@ -34,7 +34,7 @@ describe('User testes', () => {
       const user = new User({ userId, name, email, hashedPassword, token })
 
       // Assert
-      expect(user.userId).toBe(userId)
+      expect(user.Id).toBe(userId)
     })
   })
 
@@ -44,7 +44,7 @@ describe('User testes', () => {
       const user = new User({ userId, name, email, hashedPassword, token })
 
       // Assert
-      expect(user.name).toBe(name)
+      expect(user.Name).toBe(name)
     })
   })
 
@@ -54,7 +54,7 @@ describe('User testes', () => {
       const user = new User({ userId, name, email, hashedPassword, token })
 
       // Assert
-      expect(user.email).toBe(email)
+      expect(user.Email).toBe(email)
     })
   })
 
@@ -64,7 +64,7 @@ describe('User testes', () => {
       const user = new User({ userId, name, email, hashedPassword, token })
 
       // Assert
-      expect(user.hashedPassword).toBe(hashedPassword)
+      expect(user.HashedPassword).toBe(hashedPassword)
     })
   })
 
@@ -74,7 +74,7 @@ describe('User testes', () => {
       const user = new User({ userId, name, email, hashedPassword, token })
 
       // Assert
-      expect(user.token).toBe(token)
+      expect(user.Token).toBe(token)
     })
   })
 })
