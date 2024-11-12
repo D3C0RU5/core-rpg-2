@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { UserPayload } from "../../application/protocols/criptography/type/userPayload"
+import { UserPayload } from "../../application/interfaces/authentication/type/userPayload"
 
 
 export type HttpRequest = {
