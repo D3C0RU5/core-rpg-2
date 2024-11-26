@@ -1,7 +1,7 @@
 import { User } from "../../../../@domain/models/user";
-import { BaseError } from "../../../../utils/errors/base-error";
 import { IJwtTokenGenerator } from "../../../interfaces/authentication/IJwtTokenGenerator";
 import { IUserRepository } from "../../../interfaces/persistence/IUserRepository";
+import { DuplicatedEmailError } from "./errors/DuplicatedEmailError";
 import { RegisterResult } from "./IRegisterService";
 
 
@@ -10,7 +10,7 @@ export class RegisterService {
 
   async register(name: string, email: string, password: string): Promise<RegisterResult> {
     if (await this.userRepository.getByEmail(email)) {
-      throw new BaseError('User already exists', 'User with given email already exists')
+      throw new DuplicatedEmailError(email)
     }
 
     const user = User.create(name, email, password)

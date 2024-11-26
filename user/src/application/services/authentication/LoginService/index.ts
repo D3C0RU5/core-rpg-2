@@ -1,6 +1,7 @@
 import { BaseError } from "../../../../utils/errors/base-error"
 import { IJwtTokenGenerator } from "../../../interfaces/authentication/IJwtTokenGenerator"
 import { IUserRepository } from "../../../interfaces/persistence/IUserRepository"
+import { InvalidUserError } from "./errors/InvalidUser"
 import { ILoginService, LoginResult } from "./ILoginService"
 
 export class LoginService implements ILoginService {
@@ -10,11 +11,11 @@ export class LoginService implements ILoginService {
 
     const user = await this.userRepository.getByEmail(email)
     if (!user) {
-      throw new BaseError('InvalidUser', 'User with given email not exists')
+      throw new InvalidUserError()
     }
 
     if (user.HashedPassword !== password) {
-      throw new BaseError('InvalidUser', 'Invalid password.')
+      throw new InvalidUserError()
     }
 
     const token = this.jwtTokenGenerator.generateToken(user)
