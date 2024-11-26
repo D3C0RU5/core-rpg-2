@@ -1,4 +1,3 @@
-import { BaseError } from "../../../../utils/errors/base-error"
 import { IJwtTokenGenerator } from "../../../interfaces/authentication/IJwtTokenGenerator"
 import { IUserRepository } from "../../../interfaces/persistence/IUserRepository"
 import { InvalidUserError } from "./errors/InvalidUser"
