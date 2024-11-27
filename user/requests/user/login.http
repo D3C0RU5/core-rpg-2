@@ -1,9 +1,19 @@
 @host=http://localhost:5050
 
+### Request 1 - Valid login
 POST  {{host}}/api/login
 content-type: application/json
 
 {
-    "password": "taynaras",
+    "password": "taynara",
+    "email": "taynara@mail.com"
+}
+
+### Request 2 - Invalid login
+POST  {{host}}/api/login
+content-type: application/json
+
+{
+    "password": "invalid_password",
     "email": "taynara@mail.com"
 }

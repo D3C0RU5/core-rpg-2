@@ -1,6 +1,6 @@
-import { User } from "../../../../@domain/models/user";
-import { IJwtTokenGenerator } from "../../../interfaces/authentication/IJwtTokenGenerator";
-import { IUserRepository } from "../../../interfaces/persistence/IUserRepository";
+import { User } from "../../../../../@domain/models/user";
+import { IJwtTokenGenerator } from "../../../../interfaces/authentication/IJwtTokenGenerator";
+import { IUserRepository } from "../../../../interfaces/persistence/IUserRepository";
 import { DuplicatedEmailError } from "./errors/DuplicatedEmailError";
 import { RegisterResult } from "./IRegisterService";
 

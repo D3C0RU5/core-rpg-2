@@ -1,5 +1,5 @@
-import { StatusCodeEnum } from "../../../../../utils/enum/status-code";
-import { ServiceError } from "../../../errors/ServiceError";
+import { StatusCodeEnum } from "../../../../../../utils/enum/status-code";
+import { ServiceError } from "../../../../errors/ServiceError";
 
 export class DuplicatedEmailError extends ServiceError {
   constructor(email: string) {

@@ -1,4 +1,4 @@
-import { IRegisterService } from "../../../../application/services/authentication/RegisterService/IRegisterService";
+import { IRegisterService } from "../../../../application/services/authentication/commands/RegisterService/IRegisterService";
 import { handleError, ok } from "../../../helpers/http/http-helper";
 import { Controller } from "../../../protocols/controller";
 import { HttpRequest, HttpResponse } from "../../../protocols/http";
